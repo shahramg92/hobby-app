@@ -1,17 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     {% block head %}
     <title>
       {% block title %}
-      Hello
+
       {% endblock %}
     </title>
+    <link rel="stylesheet" href="/static/css/style.css">
     {% endblock %}
   </head>
   <body>
     <header>
-      <h1>This is My header</h1>
+      <h1>{% block heading %}This is My header{% endblock %}</h1>
     </header>
     <div>
       {% block content %}{% endblock %}
@@ -22,3 +23,4 @@
       {% endblock %}
     </footer>
   </body>
+</html>
