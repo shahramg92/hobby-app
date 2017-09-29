@@ -1,3 +1,13 @@
 h1 {
   text-align: center;
 }
+
+wallpaper {
+  background-color: green;
+
+}
+
+.circle:hover
+{
+        border-radius:50%;
+}
