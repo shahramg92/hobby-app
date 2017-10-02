@@ -21,7 +21,7 @@ client = boto3.client(
   'ses',
   aws_access_key_id=os.environ.get('AWS_ACCESS_KEY'),
   aws_secret_access_key=os.environ.get('AWS_SECRET_KEY'),
-  region_name=os.environ.get("AWS_DEFAULT_REGION")
+  region_name=os.environ.get('AWS_DEFAULT_REGION')
 )
 
 class TemplateHandler(tornado.web.RequestHandler):
