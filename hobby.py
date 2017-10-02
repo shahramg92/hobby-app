@@ -61,26 +61,32 @@ class FamilyHandler(TemplateHandler):
     def get(self):
         self.render_template('family.html', {})
 
-class PageHandler(TemplateHandler):
-  def post (self,page):
-    email = self.get_body_argument('email')
+class ContactHandler(TemplateHandler):
+    def post (self):
+      email = self.get_body_argument('email')
 
-    response = client.send_email(
-      Destination={
-        'ToAddresses': ['shahramg92@hotmail.com'],
-      },
-      Message={
-        'Body': {
-          'Text': {
-            'Charset': 'UTF-8',
-            'Data': 'This is a test email',
-          },
+      response = client.send_email(
+        Destination={
+          'ToAddresses': ['shahramg92@hotmail.com'],
         },
-        'Subject': {'Charset': 'UTF-8', 'Data': 'Test email'},
-      },
-      Source='mailer@shahramghassemi.com',
-    )
-    self.redirect('/thank-you-for-submitting')
+        Message={
+          'Body': {
+            'Text': {
+              'Charset': 'UTF-8',
+              'Data': 'This is a test email',
+            },
+          },
+          'Subject': {'Charset': 'UTF-8', 'Data': 'Test email'},
+        },
+        Source='mailer@shahramghassemi.com',
+      )
+      self.redirect('/thank-you-for-submitting')
+
+    def get(self):
+        self.render_template('contact.html', {})
+
+
+class PageHandler(TemplateHandler):
 
   def get(self, page):
     self.set_header(
@@ -97,6 +103,7 @@ def make_app():
     (r"/videogames", VideogamesHandler),
     (r"/nature", NatureHandler),
     (r"/family", FamilyHandler),
+    (r"/contact", ContactHandler),
     (r"/page/(.*)", PageHandler),
     (
       r"/static/(.*)",
