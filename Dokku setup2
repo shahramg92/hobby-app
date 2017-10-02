@@ -1,0 +1,141 @@
+Last login: Fri Sep 29 12:10:55 on ttys002
+Shahrams-MBP:~ shahram$ ls
+Applications	Documents	Music		characters	input.save
+Bootstrap	Downloads	Pictures	game.py		weapons
+Class-Exercises	Library		Public		hero-rpg
+Desktop		Movies		bash_profile	id_rsa.pub
+Shahrams-MBP:~ shahram$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDe7ok/nBcsHwS/mZFDluKqClTiKK6fyevpjvQD6Cm/QTHhhAlIXal1mXpDc97DZw5eO0ybxxV/Ek9qgIPvZGIQsHQ7XJAoRozz3BBMTNiSjBJjsN5iZ1ROYAs4NK7hwcX0Tkn57WLFuPE7DyVtANWYSs6UKqstRhhaAmA2Jd35DwVuAsb+0lFMhMAqn4tP50FWaJszHRSzST7xgQNU4mStjoffdBFbXtul+z4reVFe7tOh7twwaSEVsV8K6m81hhzwT86g9Q4FttiwVzmcttY3tcDlxnK8qFhrHXNvk2rMpIxkrAO9jErUkwFS9+cSeFa1DrjwMlcyEQWnoKU7L2y5 shahram@Shahrams-MBP.localdomain
+Shahrams-MBP:~ shahram$ ls
+Applications	Documents	Music		characters	input.save
+Bootstrap	Downloads	Pictures	game.py		weapons
+Class-Exercises	Library		Public		hero-rpg
+Desktop		Movies		bash_profile	id_rsa.pub
+Shahrams-MBP:~ shahram$ cd Class-Exercises/
+Shahrams-MBP:Class-Exercises shahram$ ls
+Templates	Week-12		Week-16		Week-5		Week-9
+Week-1		Week-13		Week-2		Week-6		animate.css
+Week-10		Week-14		Week-3		Week-7		hobby-app
+Week-11		Week-15		Week-4		Week-8
+Shahrams-MBP:Class-Exercises shahram$ cd hobby-app/
+Shahrams-MBP:hobby-app shahram$ workon hobby
+(hobby) Shahrams-MBP:hobby-app shahram$ git remote add dokku dokku@hobby.shahramghassemi.com:hobby
+(hobby) Shahrams-MBP:hobby-app shahram$ git remote
+dokku
+origin
+(hobby) Shahrams-MBP:hobby-app shahram$ git push dokku
+Counting objects: 97, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (88/88), done.
+Writing objects: 100% (97/97), 6.41 MiB | 4.49 MiB/s, done.
+Total 97 (delta 23), reused 3 (delta 0)
+-----> Cleaning up...
+-----> Building hobby from herokuish...
+-----> Setting config vars
+       CURL_CONNECT_TIMEOUT: 90
+-----> Setting config vars
+       CURL_TIMEOUT: 60
+-----> Adding BUILD_ENV to build environment...
+-----> Python app detected
+-----> Installing python-3.6.2
+       $ pip install -r requirements.txt
+       Collecting tornado==4.5.2 (from -r /tmp/build/requirements.txt (line 1))
+       Downloading tornado-4.5.2.tar.gz (483kB)
+       Collecting Jinja2==2.9.6 (from -r /tmp/build/requirements.txt (line 2))
+       Downloading Jinja2-2.9.6-py2.py3-none-any.whl (340kB)
+       Collecting MarkupSafe>=0.23 (from Jinja2==2.9.6->-r /tmp/build/requirements.txt (line 2))
+       Downloading MarkupSafe-1.0.tar.gz
+       Installing collected packages: tornado, MarkupSafe, Jinja2
+       Running setup.py install for tornado: started
+       Running setup.py install for tornado: finished with status 'done'
+       Running setup.py install for MarkupSafe: started
+       Running setup.py install for MarkupSafe: finished with status 'done'
+       Successfully installed Jinja2-2.9.6 MarkupSafe-1.0 tornado-4.5.2
+       
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Releasing hobby (dokku/hobby:latest)...
+-----> Deploying hobby (dokku/hobby:latest)...
+-----> Attempting to run scripts.dokku.predeploy from app.json (if defined)
+-----> App Procfile file found (/home/dokku/hobby/DOKKU_PROCFILE)
+-----> DOKKU_SCALE file not found in app image. Generating one based on Procfile...
+-----> New DOKKU_SCALE file generated
+=====> web=1
+-----> Attempting pre-flight checks
+       For more efficient zero downtime deployments, create a file CHECKS.
+       See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples
+       CHECKS file not found in container: Running simple container check...
+-----> Waiting for 10 seconds ...
+-----> Default container check successful!
+-----> Running post-deploy
+=====> renaming container (f4952daed533) wonderful_heisenberg to hobby.web.1
+-----> Creating new /home/dokku/hobby/VHOST...
+-----> Setting config vars
+       DOKKU_NGINX_PORT: 80
+-----> Setting config vars
+       DOKKU_PROXY_PORT_MAP: http:80:5000
+-----> Configuring hobby.shahramghassemi.com...(using built-in template)
+-----> Creating http nginx.conf
+-----> Running nginx-pre-reload
+       Reloading nginx
+-----> Setting config vars
+       DOKKU_APP_RESTORE: 1
+-----> Attempting to run scripts.dokku.postdeploy from app.json (if defined)
+=====> Application deployed:
+       http://hobby.shahramghassemi.com
+
+To hobby.shahramghassemi.com:hobby
+ * [new branch]      master -> master
+(hobby) Shahrams-MBP:hobby-app shahram$ git push dokku
+Counting objects: 9, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 219.25 KiB | 21.92 MiB/s, done.
+Total 9 (delta 5), reused 0 (delta 0)
+-----> Cleaning up...
+-----> Building hobby from herokuish...
+-----> Adding BUILD_ENV to build environment...
+-----> Python app detected
+       $ pip install -r requirements.txt
+       
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Releasing hobby (dokku/hobby:latest)...
+-----> Deploying hobby (dokku/hobby:latest)...
+-----> Attempting to run scripts.dokku.predeploy from app.json (if defined)
+-----> App Procfile file found (/home/dokku/hobby/DOKKU_PROCFILE)
+-----> DOKKU_SCALE file found (/home/dokku/hobby/DOKKU_SCALE)
+=====> web=1
+-----> Attempting pre-flight checks
+       For more efficient zero downtime deployments, create a file CHECKS.
+       See http://dokku.viewdocs.io/dokku/deployment/zero-downtime-deploys/ for examples
+       CHECKS file not found in container: Running simple container check...
+-----> Waiting for 10 seconds ...
+-----> Default container check successful!
+-----> Running post-deploy
+-----> Found previous container(s) (f4952daed533) named hobby.web.1
+=====> renaming container (f4952daed533) hobby.web.1 to hobby.web.1.1506708855
+=====> renaming container (b5546fe440b2) objective_gates to hobby.web.1
+-----> Configuring hobby.shahramghassemi.com...(using built-in template)
+-----> Creating http nginx.conf
+-----> Running nginx-pre-reload
+       Reloading nginx
+-----> Setting config vars
+       DOKKU_APP_RESTORE: 1
+-----> Attempting to run scripts.dokku.postdeploy from app.json (if defined)
+-----> Shutting down old containers in 60 seconds
+=====> f4952daed53305adf18f53bdfe62cc7d338ee6fc48771b92888814b4997f94b9
+=====> Application deployed:
+       http://hobby.shahramghassemi.com
+
+To hobby.shahramghassemi.com:hobby
+   5906c53..ad385f9  master -> master
+(hobby) Shahrams-MBP:hobby-app shahram$ git push dokku
+Everything up-to-date
+(hobby) Shahrams-MBP:hobby-app shahram$ git push dokku
+ssh: Could not resolve hostname hobby.shahramghassemi.com: nodename nor servname provided, or not known
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(hobby) Shahrams-MBP:hobby-app shahram$ 
