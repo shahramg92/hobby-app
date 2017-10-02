@@ -85,14 +85,14 @@ class ContactHandler(TemplateHandler):
           'Body': {
             'Text': {
               'Charset': 'UTF-8',
-              'Data': f'(Email: {email}, Password: {password}, Address: {address}, Address2: {address2} City: {city}, State: {state}, Zip: {zipcode}'
+              'Data': f"Email: {email}, Password: {password}, Address: {address}, Address2: {address2}, City: {city}, State: {state}, Zip: {zipcode}"
             },
           },
           'Subject': {'Charset': 'UTF-8', 'Data': 'Test email'},
         },
         Source='mailer@shahramghassemi.com',
       )
-      self.redirect('/thank-you-for-submitting')
+      self.redirect('/thankyou')
 
     def get(self):
         self.render_template('contact.html', {})
