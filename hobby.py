@@ -61,19 +61,31 @@ class FamilyHandler(TemplateHandler):
     def get(self):
         self.render_template('family.html', {})
 
+class ThankyouHandler(TemplateHandler):
+    def get(self):
+        self.render_template('thankyou.html', {})
+
+
 class ContactHandler(TemplateHandler):
     def post (self):
       email = self.get_body_argument('email')
+      password = self.get_body_argument('password')
+      address = self.get_body_argument('address')
+      address2 = self.get_body_argument('address2')
+      city = self.get_body_argument('city')
+      zipcode = self.get_body_argument('zipcode')
+      state = self.get_body_argument('state')
 
       response = client.send_email(
         Destination={
           'ToAddresses': ['shahramg92@hotmail.com'],
         },
+
         Message={
           'Body': {
             'Text': {
               'Charset': 'UTF-8',
-              'Data': 'This is a test email',
+              'Data': f'(Email: {email}, Password: {password}, Address: {address}, Address2: {address2} City: {city}, State: {state}, Zip: {zipcode}'
             },
           },
           'Subject': {'Charset': 'UTF-8', 'Data': 'Test email'},
@@ -104,6 +116,7 @@ def make_app():
     (r"/nature", NatureHandler),
     (r"/family", FamilyHandler),
     (r"/contact", ContactHandler),
+    (r"/thankyou", ThankyouHandler),
     (r"/page/(.*)", PageHandler),
     (
       r"/static/(.*)",
@@ -111,6 +124,7 @@ def make_app():
       {'path': 'static'}
     ),
   ], autoreload=True)
+
 
 if __name__ == "__main__":
   tornado.log.enable_pretty_logging()
