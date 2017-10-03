@@ -65,6 +65,11 @@ class ThankyouHandler(TemplateHandler):
     def get(self):
         self.render_template('thankyou.html', {})
 
+class TipcalcHandler(TemplateHandler):
+    def get(self):
+        self.render_template('tipcalc.html', {})
+    # def post(self):
+
 
 class ContactHandler(TemplateHandler):
     def post (self):
@@ -117,6 +122,7 @@ def make_app():
     (r"/family", FamilyHandler),
     (r"/contact", ContactHandler),
     (r"/thankyou", ThankyouHandler),
+    (r"/tipcalc", TipcalcHandler),
     (r"/page/(.*)", PageHandler),
     (
       r"/static/(.*)",
