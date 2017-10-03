@@ -112,12 +112,12 @@ class ContactHandler(TemplateHandler):
           'Body': {
             'Text': {
               'Charset': 'UTF-8',
-              'Data': f"Email: {email}, Password: {password}, Address: {address}, Address2: {address2}, City: {city}, State: {state}, Zip: {zipcode}"
+              'Data': f"Email: {email} \nPassword: {password} \nAddress: {address} \nAddress2: {address2} \nCity: {city} \nState: {state} \nZip: {zipcode}"
             },
           },
           'Subject': {'Charset': 'UTF-8', 'Data': 'Test email'},
         },
-        Source='mailer@shahramghassemi.com',
+        Source='Shahram@shahramghassemi.com',
       )
       self.redirect('/thankyou')
 
@@ -126,7 +126,6 @@ class ContactHandler(TemplateHandler):
 
 
 class PageHandler(TemplateHandler):
-
   def get(self, page):
     self.set_header(
       'Cache-Control',
