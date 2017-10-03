@@ -68,7 +68,10 @@ class ThankyouHandler(TemplateHandler):
 class TipcalcHandler(TemplateHandler):
     def get(self):
         self.render_template('tipcalc.html', {})
-    # def post(self):
+    def post(self):
+        
+
+
 
 
 class ContactHandler(TemplateHandler):
