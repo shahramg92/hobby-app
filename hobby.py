@@ -69,9 +69,28 @@ class TipcalcHandler(TemplateHandler):
     def get(self):
         self.render_template('tipcalc.html', {})
     def post(self):
-        
+        bill = self.get_body_argument('bill')
+        service = self.get_body_argument('service')ls
+
+    def main():
+        # ask for bill amount
+        bill = float(input("What is the amount of your bill? $"))
+
+        # ask for satisfaction level
+        service = input("\nHow was the service?\ngood\nfair\nbad\nPlease choose one of the above options, then press Enter. ").lower()
 
 
+        # calculate tip amount
+        tips = {"good" : 0.20,
+                "fair" : 0.15,
+                "bad" : 0.10}
+        tip_percentage = tips[service]
+        tip = bill * tip_percentage
+
+        # print message with tip amount
+        print("\nYour bill was ${bill:.2f}, and your service was {service}.\n\nYou should tip ${tip:.2f}\n".format(bill=bill, service=service, tip=tip))
+
+        main()
 
 
 class ContactHandler(TemplateHandler):

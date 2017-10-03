@@ -7,18 +7,19 @@
 <form action='' method='POST'>
     <div class="form-group">
       <label class="form-control-label" for="formGroupExampleInput">How much was your bill?</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter amount in dollars">
+      <input name="bill" input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter amount in dollars">
     </div>
     <div class="form-row align-items-center">
     <div class="col-auto">
       <label class="mr-sm-2" for="inlineFormCustomSelect">How was the service?</label>
-      <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+      <select name="service" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
         <option selected>Choose...</option>
         <option value="1">Good</option>
         <option value="2">Fair</option>
         <option value="3">Poor</option>
       </select>
     </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
 {% endblock %}
