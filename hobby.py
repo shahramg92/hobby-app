@@ -70,7 +70,7 @@ class TipcalcHandler(TemplateHandler):
         self.render_template('tipcalc.html', {})
     def post(self):
         bill = self.get_body_argument('bill')
-        service = self.get_body_argument('service')ls
+        service = self.get_body_argument('service')
 
     def main():
         # ask for bill amount
