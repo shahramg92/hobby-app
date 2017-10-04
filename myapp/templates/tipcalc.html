@@ -14,12 +14,14 @@
       <label class="mr-sm-2" for="inlineFormCustomSelect">How was the service?</label>
       <select name="service" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
         <option selected>Choose...</option>
-        <option value="1">Good</option>
-        <option value="2">Fair</option>
-        <option value="3">Poor</option>
+        <option value="good">Good</option>
+        <option value="fair">Fair</option>
+        <option value="poor">Poor</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+{{ total }}
 
 {% endblock %}
