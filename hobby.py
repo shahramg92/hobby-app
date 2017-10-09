@@ -147,8 +147,7 @@ def make_app():
     (r"/thankyou", ThankyouHandler),
     (r"/tipcalc", TipcalcHandler),
     (r"/page/(.*)", PageHandler),
-    (
-      r"/static/(.*)",
+    (r"/static/(.*)",
       tornado.web.StaticFileHandler,
       {'path': 'static'}
     ),
